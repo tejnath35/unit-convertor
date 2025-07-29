@@ -71,7 +71,6 @@ def convert():
     entry_result.insert(0, f"{result:.{precision}f}")
     entry_result.config(state="readonly")
 
-# 🎨 GUI Setup
 root = tk.Tk()
 root.title("Styled Unit Converter")
 root.geometry("460x400")
@@ -81,7 +80,6 @@ root.resizable(False, False)
 font_title = ("Arial", 11)
 font_body = ("Arial", 10)
 
-# 🧱 Input Frame
 frame_input = tk.LabelFrame(root, text="Input", bg="#f2f2f2", font=font_body)
 frame_input.pack(fill="x", padx=15, pady=10)
 
@@ -95,7 +93,6 @@ spin_precision.grid(row=1, column=1, sticky="w", pady=5)
 spin_precision.delete(0, tk.END)
 spin_precision.insert(0, "4")
 
-# 📐 Units Frame
 frame_units = tk.LabelFrame(root, text="Units", bg="#f2f2f2", font=font_body)
 frame_units.pack(fill="x", padx=15, pady=5)
 
@@ -113,13 +110,10 @@ tk.Label(frame_units, text="To:", font=font_title, bg="#f2f2f2").grid(row=2, col
 combo_to = ttk.Combobox(frame_units, state="readonly", width=16)
 combo_to.grid(row=2, column=1, padx=10)
 
-# 🔁 Swap Button
 ttk.Button(frame_units, text="Swap Units", command=swap_units).grid(row=3, column=0, columnspan=2, pady=8)
 
-# 🧮 Convert Button
 ttk.Button(root, text="Convert", command=convert).pack(pady=10)
 
-# 🎯 Result Field
 entry_result = tk.Entry(root, font=font_title, width=28, state="readonly", justify="center")
 entry_result.pack(pady=5)
 
